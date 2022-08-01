@@ -11,7 +11,7 @@ header{
     font-weight: lighter;
     padding: 20px;
     background-color: rgb(228, 227, 227);
-    color: rgb(121, 122, 122);
+    color: rgb(78, 78, 78);
 }
 
 body{
@@ -33,8 +33,7 @@ footer{
     justify-content: center;
     font-size: 20px;
     font-weight: bolder;
-    transition: .4s;
-    color: white;
+    color: rgb(78, 78, 78);
 }
 
 .social-media-link1{
@@ -68,40 +67,30 @@ footer{
 }
 
 .container{
-    margin: 15px;
-    border: 1px solid;
-    width: 250px;
-    height: 250px;
-    border-top-right-radius: 25px;
-    border-bottom-left-radius: 25px;
-    text-align: center;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-    transition: .4s;
-    padding: 10px;
-}
-
-.container:hover{
-    background-color: white;
-    color: black;
-    position: relative;
-    top: -20px;
-}
-
-.conteiner-images{
-    width: 200px;
-    height: 200px;
-    border-top-right-radius: 25px;
-    border-bottom-left-radius: 25px;
-}
-
-.container .box{
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .box{
-    width: 250px;
-    height: 250px;
-    display: inline-block;
+    width: 230px;
+    height: 230px;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    transition: .4s;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.box:hover{
+    background-color: rgb(216, 214, 214);
+}
+
+.container-image{
+    width: 200px;
+    height: 150px;
+    padding: 0;
+    margin-top: 15px;
 }
