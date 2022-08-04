@@ -12,23 +12,22 @@ const addTask = () =>{
             let task = document.createElement("div")
             task.innerText = `${inputText.value} \n Prazo: ${inputDate.value}\n`
             document.body.appendChild(task)
-            task.className = 'divTask'
+            task.classList.add('divTask')
             
-            let divTask = document.querySelector('.divTask')
             let editButton = document.createElement("button")
             editButton.innerHTML = 'edit'
-            divTask.appendChild(editButton)
+            task.appendChild(editButton)
             editButton.setAttribute('id', 'editBtn')
             editButton.style.visibility = 'hidden'
 
             let deleteButton = document.createElement("button")
             deleteButton.innerHTML = 'Del'
-            divTask.appendChild(deleteButton)
+            task.appendChild(deleteButton)
             deleteButton.setAttribute('id', 'delBtn')
             deleteButton.style.visibility = 'hidden'
             
-            divTask.onmouseover = function(){showButton(list)}
-            divTask.onmouseout = function(){hideButton(list)}
+            task.onmouseover = function(){showButton()}
+            task.onmouseout = function(){hideButton()}
 
         }else{
             const message = document.createTextNode("Favor preencher o campo")
