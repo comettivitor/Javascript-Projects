@@ -1,14 +1,16 @@
 const addButton = document.querySelector('.addButton');
+const saveBtn = document.querySelector('.editButton')
 const inputText = document.querySelector('.inputText');
 const inputDate = document.querySelector('.inputDate')
 const nullText = document.querySelector('.nullText')
 
 var list = []
 
+
 const addTask = () =>{
-        if(inputText.value !== ''){
-            list.push(inputText.value, inputDate.value)
-            
+    if(inputText.value !== ''){
+        list.push([inputText.value, inputDate.value])
+            console.log(list)
             let task = document.createElement("div")
             task.innerText = `${inputText.value} \n Prazo: ${inputDate.value}\n`
             document.body.appendChild(task)
@@ -18,17 +20,56 @@ const addTask = () =>{
             editButton.innerHTML = 'edit'
             task.appendChild(editButton)
             editButton.setAttribute('id', 'editBtn')
-            editButton.style.visibility = 'hidden'
+            editButton.addEventListener('click', function(edit){
+                if(edit.target){
+                    addButton.style.visibility = 'hidden'
+                    saveBtn.style.visibility = 'visible'
+                    inputText.value = list[0]
+                    inputDate.value = list[1]
+                    saveBtn.addEventListener('click', function(save){
+                        task.innerText = `${inputText.value} \n Prazo: ${inputDate.value}\n`
+                        document.body.appendChild(task)
+                        task.classList.add('divTask')
+                        clean()
+                        saveBtn.style.visibility = 'hidden'
+                        addButton.style.visibility = 'visible'
+                    })
+                }
+
+            let editButton = document.createElement("button")
+            editButton.innerHTML = 'edit'
+            task.appendChild(editButton)
+            editButton.setAttribute('id', 'editBtn')
 
             let deleteButton = document.createElement("button")
             deleteButton.innerHTML = 'Del'
             task.appendChild(deleteButton)
             deleteButton.setAttribute('id', 'delBtn')
-            deleteButton.style.visibility = 'hidden'
-            
-            task.onmouseover = function(){showButton()}
-            task.onmouseout = function(){hideButton()}
+            deleteButton.addEventListener('click', function(del){
+                if(del.target){
+                    let index = list.indexOf(task)
+                    list.splice(index, 1)
+                    task.parentNode.removeChild(task)
+                    console.log(list)
+                }
+            })
+            clean()
 
+            })
+
+            let deleteButton = document.createElement("button")
+            deleteButton.innerHTML = 'Del'
+            task.appendChild(deleteButton)
+            deleteButton.setAttribute('id', 'delBtn')
+            deleteButton.addEventListener('click', function(del){
+                if(del.target){
+                    let index = list.indexOf(task)
+                    list.splice(index, 1)
+                    task.parentNode.removeChild(task)
+                    console.log(list)
+                }
+            })
+            clean()
         }else{
             const message = document.createTextNode("Favor preencher o campo")
             nullText.appendChild(message)
@@ -38,18 +79,16 @@ const addTask = () =>{
         }
     }
 
+
+    console.log(list)
+
 addButton.addEventListener('click', function(btn){
     if(btn.target){
-        addTask()
+        addTask()        
     }
 })
 
-const showButton = () =>{
-    document.querySelector('#editBtn').style.visibility = 'visible'
-    document.querySelector('#delBtn').style.visibility = 'visible'
-}
-
-const hideButton = () =>{
-    document.querySelector('#editBtn').style.visibility = 'hidden'
-    document.querySelector('#delBtn').style.visibility = 'hidden'
+const clean = () =>{
+    inputText.value = ''
+    inputDate.value = ''
 }
