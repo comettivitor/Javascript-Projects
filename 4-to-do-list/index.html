@@ -13,16 +13,22 @@
     </header>
 
     <section>
-        <span class="nullText"></span>
-        <br>
-        <input type="text" placeholder="Add a task here..." class="inputText"/>
-        <br>
-        <label> Prazo Final: </label>
+        <div class="container1">
+            <span class="nullText"></span>
+            <br>
+            <input type="text" placeholder="Add a task here..." class="inputText"/>
+        </div>
+
+        <label> Date: </label>
         <input type="date" class="inputDate"/>
+
+        <div>
+            <button class="addButton">+</button>
+            <button class="editButton" style="visibility: hidden;">Save</button>
+        </div>
     </section>
 
-    <button class="addButton">+</button>
-    <button class="editButton" style="visibility: hidden;">save</button>
+
     <script src="/4-to-do-list/index.js"></script>
 </body>
 </html>

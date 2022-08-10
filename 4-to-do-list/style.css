@@ -1,3 +1,54 @@
-.divTask:hover{
-    background-color: aqua;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    text-align: center;
+}
+
+section{
+    margin: 10px;
+    width: 450px;
+    height: 200px;
+    justify-content: center;
+    text-align: center;
+    border: solid 1px;
+    border-radius: 4px;
+}
+
+.nullText{
+    color: red;
+    font-size: 15px;
+    text-align: ;
+}
+
+container1:active{
+    margin: 420px;
+    height: 50px;
+    border: solid 1px;
+}
+
+.inputText{
+    width: 400px;
+    height: 30px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.inputDate{
+    margin: 10px;
+}
+
+.addButton, .editButton{
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+.addButton:hover, .editButton:hover{
+    background-color: brown;
 }
